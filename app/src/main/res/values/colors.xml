@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <color name="colorPrimary">#008577</color>
+    <color name="colorPrimaryDark">#00574B</color>
+    <color name="colorAccent">#D81B60</color>
+
+    <!-- Text color for the primary location of the neww in the list item -->
+    <color name="textColorNewsDetails">#62727b</color>
+
+    <!-- Text color for the primary location of the neww in the list item -->
+    <color name="textColorNewsTitle">#37474f</color>
+
+    <!-- Color for an earthquake with magnitude 0 and 2 -->
+    <color name="section_sport">#4A7BA7</color>
+
+    <!-- Magnitude circle color for an earthquake with magnitude between 2 and 3 -->
+    <color name="section_lifestyle">#04B4B3</color>
+
+    <!-- Magnitude circle color for an earthquake with magnitude between 3 and 4 -->
+    <color name="section_food">#10CAC9</color>
+
+    <!-- Magnitude circle color for an earthquake with magnitude between 4 and 5 -->
+    <color name="section_books">#F5A623</color>
+
+    <!-- Magnitude circle color for an earthquake with magnitude between 5 and 6 -->
+    <color name="section_tvradio">#FF7D50</color>
+
+    <!-- Magnitude circle color for an earthquake with magnitude between 6 and 7 -->
+    <color name="section_worldnews">#FC6644</color>
+
+</resources>
