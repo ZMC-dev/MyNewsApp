@@ -5,7 +5,7 @@
     android:shape="oval">
     <solid android:color="@color/section1" />
     <size
-        android:width="38dp"
-        android:height="38dp" />
-    <corners android:radius="18dp" />
+        android:width="50dp"
+        android:height="50dp" />
+    <corners android:radius="30dp" />
 </shape>

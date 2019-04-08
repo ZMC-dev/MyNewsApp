@@ -7,6 +7,7 @@ import android.view.ViewGroup;
 import android.widget.ArrayAdapter;
 import android.widget.TextView;
 
+import java.text.ParseException;
 import java.text.SimpleDateFormat;
 import java.util.Date;
 import java.util.List;
@@ -17,7 +18,7 @@ public class NewsAdapter extends ArrayAdapter<News> {
     /**
      * Constructs a new {@link NewsAdapter}.
      *
-     * @param context of the app
+     * @param context   of the app
      * @param last_news is the list of news, which is the data source of the adapter
      */
     public NewsAdapter(Context context, List<News> last_news) {
@@ -49,7 +50,6 @@ public class NewsAdapter extends ArrayAdapter<News> {
         // Display the section of the current news in that TextView
         sectionView.setText(formattedSection);
 
-
         // Find the TextView with view ID title
         TextView titleView = (TextView) listItemView.findViewById(R.id.title);
         String title = currentNews.getTitle();
@@ -62,28 +62,19 @@ public class NewsAdapter extends ArrayAdapter<News> {
         // Display the location offset of the current earthquake in that TextView
         typeView.setText(type);
 
-        // Create a new Date object from the date of publication
-        Date dateObject = new Date(currentNews.getDate());
 
         // Find the TextView with view ID date
         TextView dateView = (TextView) listItemView.findViewById(R.id.date);
         // Format the date string (i.e. "Mar 3, 1984")
-        String formattedDate = formatDate(dateObject);
+        String date = currentNews.getDate();
         // Display the date of the current earthquake in that TextView
-        dateView.setText(formattedDate);
+        dateView.setText(date);
+
 
         // Return the list item view that is now showing the appropriate data
         return listItemView;
     }
 
-
-    /**
-     * Return the formatted date string (i.e. "Mar 3, 1984") from a Date object.
-     */
-    private String formatDate(Date dateObject) {
-        SimpleDateFormat dateFormat = new SimpleDateFormat("LLL dd, yyyy");
-        return dateFormat.format(dateObject);
-    }
-
 }
+
 

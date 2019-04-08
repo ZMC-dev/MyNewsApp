@@ -31,51 +31,35 @@ public final class QueryUtils {
      * This class is only meant to hold static variables and methods, which can be accessed
      * directly from the class name QueryUtils (and an object instance of QueryUtils is not needed).
      */
-    private QueryUtils() {
-    }
+    private QueryUtils() { }
 
-    /**
-     * Query the Guardian dataset and return a list of {@link News} objects.
-     */
-    public static List<News> fetchNewsData(String requestUrl) {
-        // Create URL object
+    static List<News> fetchNewsData(String requestUrl) {
         URL url = createUrl(requestUrl);
 
-        // Perform HTTP request to the URL and receive a JSON response back
         String jsonResponse = null;
         try {
             jsonResponse = makeHttpRequest(url);
         } catch (IOException e) {
-            Log.e(LOG_TAG, "Problem making the HTTP request.", e);
+            e.printStackTrace();
         }
 
-        // Extract relevant fields from the JSON response and create a list of {@link News}
-        List<News> last_news = extractFeatureFromJson(jsonResponse);
-
-        // Return the list of {@link News}s
-        return last_news;
+        return extractNews(jsonResponse);
     }
 
-    /**
-     * Returns new URL object from the given string URL.
-     */
     private static URL createUrl(String stringUrl) {
         URL url = null;
         try {
             url = new URL(stringUrl);
         } catch (MalformedURLException e) {
-            Log.e(LOG_TAG, "Problem building the URL ", e);
+
+            e.printStackTrace();
         }
         return url;
     }
 
-    /**
-     * Make an HTTP request to the given URL and return a String as the response.
-     */
     private static String makeHttpRequest(URL url) throws IOException {
         String jsonResponse = "";
 
-        // If the URL is null, then return early.
         if (url == null) {
             return jsonResponse;
         }
@@ -89,24 +73,20 @@ public final class QueryUtils {
             urlConnection.setRequestMethod("GET");
             urlConnection.connect();
 
-            // If the request was successful (response code 200),
-            // then read the input stream and parse the response.
             if (urlConnection.getResponseCode() == 200) {
                 inputStream = urlConnection.getInputStream();
                 jsonResponse = readFromStream(inputStream);
             } else {
-                Log.e(LOG_TAG, "Error response code: " + urlConnection.getResponseCode());
+                Log.d("Error response code: ", String.valueOf(urlConnection.getResponseCode()));
             }
         } catch (IOException e) {
-            Log.e(LOG_TAG, "Problem retrieving the News JSON results.", e);
+            e.printStackTrace();
         } finally {
             if (urlConnection != null) {
                 urlConnection.disconnect();
             }
             if (inputStream != null) {
-                // Closing the input stream could throw an IOException, which is why
-                // the makeHttpRequest(URL url) method signature specifies than an IOException
-                // could be thrown.
+
                 inputStream.close();
             }
         }
@@ -131,15 +111,11 @@ public final class QueryUtils {
         return output.toString();
     }
 
-    /**
-     * Return a list of {@link News} objects that has been built up from
-     * parsing the given JSON response.
-     */
-    private static List<News> extractFeatureFromJson(String newsJSON) {
-        // If the JSON string is empty or null, then return early.
+    private static List<News> extractNews(String newsJSON) {
         if (TextUtils.isEmpty(newsJSON)) {
             return null;
         }
+
 
         // Create an empty ArrayList that we can start adding newsList to
         List<News> newsList = new ArrayList<>();
@@ -159,11 +135,11 @@ public final class QueryUtils {
 
                 String title = currentResults.getString("webTitle");
                 String type = currentResults.getString("type");
-                long date = currentResults.getLong("webPublicationDate");
+                String date = currentResults.getString("webPublicationDate");
                 String section = currentResults.getString("sectionName");
                 String url = currentResults.getString("webUrl");
 
-                News last_news = new News(section,title,type,date,url);
+                News last_news = new News(section,title,type, date, url);
 
                 newsList.add(last_news);
 

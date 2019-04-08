@@ -15,7 +15,7 @@ public class News {
     private String mPublicationType;
 
     /** Date of the publication */
-    private long mPublicationDate;
+    private String mPublicationDate;
 
     /** Website URL of the news */
     private String mWebUrl;
@@ -28,7 +28,7 @@ public class News {
      * @param date is the date of article publication
      * @param url is the website URL to find more details about the news
      */
-    public News (String section, String title, String type, Long date, String url) {
+    public News (String section, String title, String type, String date, String url) {
         mSectionId = section;
         mWebTitle = title;
         mPublicationType = type;
@@ -60,7 +60,7 @@ public class News {
     /**
      * Returns the publication date of the news.
      */
-    public long getDate() {
+    public String getDate() {
         return mPublicationDate;
     }
 
