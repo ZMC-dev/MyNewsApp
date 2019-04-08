@@ -1,8 +1,6 @@
 package com.example.android.mynewsapp;
 
 import android.content.Context;
-import android.graphics.drawable.GradientDrawable;
-import android.support.v4.content.ContextCompat;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -41,7 +39,6 @@ public class NewsAdapter extends ArrayAdapter<News> {
                     R.layout.news_list_item, parent, false);
         }
 
-
         // Find the news at the given position in the list of news
         News currentNews = getItem(position);
 
@@ -52,13 +49,6 @@ public class NewsAdapter extends ArrayAdapter<News> {
         // Display the section of the current news in that TextView
         sectionView.setText(formattedSection);
 
-        // Set the proper background color on the section circle.
-        // Fetch the background from the TextView, which is a GradientDrawable.
-        GradientDrawable sectionCircle = (GradientDrawable) sectionView.getBackground();
-        // Get the appropriate background color based on the current earthquake magnitude
-        int sectionColor = getSectionColor (currentNews.getSection());
-        // Set the color on the magnitude circle
-        sectionCircle.setColor(sectionColor);
 
         // Find the TextView with view ID title
         TextView titleView = (TextView) listItemView.findViewById(R.id.title);
@@ -86,36 +76,6 @@ public class NewsAdapter extends ArrayAdapter<News> {
         return listItemView;
     }
 
-    /**
-     * Return the color for the section circle based on the type of section .
-     *
-     * @param section of the news
-     */
-    private int getSectionColor (String section) {
-        int sectionColorResourceId = 0;
-        switch (section) {
-            case "Books":
-                sectionColorResourceId = R.color.section_books;
-                break;
-            case "Food":
-                sectionColorResourceId = R.color.section_food;
-                break;
-            case "LifeStyle":
-                sectionColorResourceId = R.color.section_lifestyle;
-                break;
-            case "Sport":
-                sectionColorResourceId = R.color.section_sport;
-                break;
-            case "TV & Radio":
-                sectionColorResourceId = R.color.section_tvradio;
-                break;
-            case "World":
-                sectionColorResourceId = R.color.section_worldnews;
-                break;
-        }
-
-        return ContextCompat.getColor(getContext(), sectionColorResourceId);
-    }
 
     /**
      * Return the formatted date string (i.e. "Mar 3, 1984") from a Date object.

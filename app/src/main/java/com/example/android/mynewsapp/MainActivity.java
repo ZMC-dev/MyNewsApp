@@ -25,7 +25,7 @@ public class MainActivity extends AppCompatActivity
 
     /** URL for news data from the "Guardian" dataset */
     private static final String GUARDIAN_REQUEST_URL =
-            "https://content.guardianapis.com/search?q=json&api-key=test";
+            "https://content.guardianapis.com/search?q=json&api-key=50dc77e8-fb18-40ad-a1b4-43d9a126b333";
 
     /**
      * Constant value for the news loader ID. We can choose any integer.
@@ -116,16 +116,16 @@ public class MainActivity extends AppCompatActivity
         View loadingIndicator = findViewById(R.id.loading_indicator);
         loadingIndicator.setVisibility(View.GONE);
 
-        // Set empty state text to display "No earthquakes found."
+        // Set empty state text to display "No news found."
         mEmptyStateTextView.setText(R.string.no_news);
 
-        // Clear the adapter of previous earthquake data
+        // Clear the adapter of previous news data
         //mAdapter.clear();
 
-        // If there is a valid list of {@link Earthquake}s, then add them to the adapter's
+        // If there is a valid list of {@link News}s, then add them to the adapter's
         // data set. This will trigger the ListView to update.
         if (last_news != null && !last_news.isEmpty()) {
-            //mAdapter.addAll(earthquakes);
+            //mAdapter.addAll(last_news);
             mAdapter.addAll(last_news);
         }
     }

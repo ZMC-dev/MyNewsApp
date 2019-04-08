@@ -10,22 +10,27 @@
     <!-- Text color for the primary location of the neww in the list item -->
     <color name="textColorNewsTitle">#37474f</color>
 
-    <!-- Color for an earthquake with magnitude 0 and 2 -->
-    <color name="section_sport">#4A7BA7</color>
+    <!-- Color for section circle of the first section -->
+    <color name="section1">#4A7BA7</color>
 
-    <!-- Magnitude circle color for an earthquake with magnitude between 2 and 3 -->
-    <color name="section_lifestyle">#04B4B3</color>
+    <!-- Color for section circle of the second section -->
+    <color name="section2">#04B4B3</color>
 
-    <!-- Magnitude circle color for an earthquake with magnitude between 3 and 4 -->
-    <color name="section_food">#10CAC9</color>
+    <!--Color for section circle of the third section -->
+    <color name="section3">#10CAC9</color>
 
-    <!-- Magnitude circle color for an earthquake with magnitude between 4 and 5 -->
-    <color name="section_books">#F5A623</color>
+    <!-- Color for section circle of the fourth section -->
+    <color name="section4">#F5A623</color>
 
-    <!-- Magnitude circle color for an earthquake with magnitude between 5 and 6 -->
-    <color name="section_tvradio">#FF7D50</color>
+    <!-- Color for section circle of the fifth section  -->
+    <color name="section5">#FF7D50</color>
 
-    <!-- Magnitude circle color for an earthquake with magnitude between 6 and 7 -->
-    <color name="section_worldnews">#FC6644</color>
+    <!-- Color for section circle of the six section  -->
+    <color name="section6">#FC6644</color>
+
+    <!-- Color for section circle of the seven section  -->
+    <color name="section7">#FC6678</color>
+
+
 
 </resources>
