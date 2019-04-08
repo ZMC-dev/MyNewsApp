@@ -163,7 +163,7 @@ public final class QueryUtils {
                 String section = currentResults.getString("sectionName");
                 String url = currentResults.getString("webUrl");
 
-                News last_news = new News(title, title,type, date, url);
+                News last_news = new News(section,title,type,date,url);
 
                 newsList.add(last_news);
 
