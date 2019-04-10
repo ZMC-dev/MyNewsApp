@@ -138,7 +138,16 @@ public final class QueryUtils {
                 String date = currentResults.getString("webPublicationDate");
                 String section = currentResults.getString("sectionName");
                 String url = currentResults.getString("webUrl");
-                String author = currentResults.getString("contributor");
+
+
+                JSONArray tagsContributor = currentResults.getJSONArray("tags");
+                String author ="";
+                if (tagsContributor.length()!= 0) {
+                    JSONObject currentTagsContributor = tagsContributor.getJSONObject(0);
+                    author = currentTagsContributor.getString("webTitle");
+                }else{
+                    author = "No author found";
+                }
 
                 News last_news = new News(section,title,type, date, author, url);
 
