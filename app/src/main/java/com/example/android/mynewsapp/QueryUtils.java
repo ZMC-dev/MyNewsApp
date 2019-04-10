@@ -138,8 +138,9 @@ public final class QueryUtils {
                 String date = currentResults.getString("webPublicationDate");
                 String section = currentResults.getString("sectionName");
                 String url = currentResults.getString("webUrl");
+                String author = currentResults.getString("contributor");
 
-                News last_news = new News(section,title,type, date, url);
+                News last_news = new News(section,title,type, date, author, url);
 
                 newsList.add(last_news);
 

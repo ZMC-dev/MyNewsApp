@@ -75,6 +75,17 @@
             android:textSize="9sp"
             tools:text="Mar 6, 2010" />
 
+        <TextView
+            android:id="@+id/author"
+            android:layout_width="45dp"
+            android:layout_height="wrap_content"
+            android:layout_gravity="end"
+            android:textColor="@color/textColorNewsDetails"
+            android:fontFamily="sans-serif-condensed-light"
+            android:textSize="9sp"
+            android:layout_marginTop="5dp"
+            tools:text="Author" />
+
     </LinearLayout>
 
 </LinearLayout>

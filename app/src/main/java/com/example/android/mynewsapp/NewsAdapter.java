@@ -62,6 +62,11 @@ public class NewsAdapter extends ArrayAdapter<News> {
         // Display the location offset of the current earthquake in that TextView
         typeView.setText(type);
 
+        // Find the TextView with view for the Author
+        TextView authorView = (TextView) listItemView.findViewById(R.id.author);
+        String contributor = currentNews.getAuthor();
+        // Display the location offset of the current earthquake in that TextView
+        authorView.setText(contributor);
 
         // Find the TextView with view ID date
         TextView dateView = (TextView) listItemView.findViewById(R.id.date);

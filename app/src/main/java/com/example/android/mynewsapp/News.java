@@ -20,6 +20,11 @@ public class News {
     /** Website URL of the news */
     private String mWebUrl;
 
+    /** Author of the the news */
+
+    private String mContributor;
+
+
     /**
      * Constructs a new {@link News} object.
      *  @param section is the theme of the publication, for exemple :sport or lifestyle
@@ -28,11 +33,12 @@ public class News {
      * @param date is the date of article publication
      * @param url is the website URL to find more details about the news
      */
-    public News (String section, String title, String type, String date, String url) {
+    public News (String section, String title, String type, String date, String author, String url) {
         mSectionId = section;
         mWebTitle = title;
         mPublicationType = type;
         mPublicationDate = date;
+        mContributor = author;
         mWebUrl = url;
     }
 
@@ -70,5 +76,14 @@ public class News {
     public String getUrl() {
         return mWebUrl;
     }
+
+    /**
+     * Returns the website URL to find more information about the news.
+     */
+    public String getAuthor() {
+        return mContributor;
+    }
+
+
 }
 
