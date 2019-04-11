@@ -53,26 +53,26 @@ public class NewsAdapter extends ArrayAdapter<News> {
         // Find the TextView with view ID title
         TextView titleView = (TextView) listItemView.findViewById(R.id.title);
         String title = currentNews.getTitle();
-        // Display the location of the current earthquake in that TextView
+        // Display the title of the current view in that TextView
         titleView.setText(title);
 
         // Find the TextView with view ID type
         TextView typeView = (TextView) listItemView.findViewById(R.id.type);
         String type = currentNews.getType();
-        // Display the location offset of the current earthquake in that TextView
+        // Display the type  of the current news in that TextView
         typeView.setText(type);
 
         // Find the TextView with view for the Author
         TextView authorView = (TextView) listItemView.findViewById(R.id.author);
         String contributor = currentNews.getAuthor();
-        // Display the location offset of the current earthquake in that TextView
+        // Display the author of the current news in that TextView
         authorView.setText(contributor);
 
         // Find the TextView with view ID date
         TextView dateView = (TextView) listItemView.findViewById(R.id.date);
         // Format the date string (i.e. "Mar 3, 1984")
         String date = currentNews.getDate();
-        // Display the date of the current earthquake in that TextView
+        // Display the date of the current news in that TextView
         dateView.setText(date);
 
 

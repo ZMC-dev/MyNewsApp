@@ -21,7 +21,6 @@ import java.util.List;
 public class MainActivity extends AppCompatActivity
         implements LoaderCallbacks<List<News>> {
 
-    private static final String LOG_TAG = MainActivity.class.getName();
 
     /** URL for news data from the "Guardian" dataset */
     private static final String GUARDIAN_REQUEST_URL =
@@ -63,7 +62,7 @@ public class MainActivity extends AppCompatActivity
         newsListView.setOnItemClickListener(new AdapterView.OnItemClickListener() {
             @Override
             public void onItemClick(AdapterView<?> adapterView, View view, int position, long l) {
-                // Find the current earthquake that was clicked on
+                // Find the current news that was clicked on
                 News currentNews = mAdapter.getItem(position);
 
                 // Convert the String URL into a URI object (to pass into the Intent constructor)
@@ -108,16 +107,14 @@ public class MainActivity extends AppCompatActivity
     public Loader<List<News>> onCreateLoader(int i, Bundle bundle) {
         // Create a new loader for the given URL
 
+        // Create a URI Builder with contributor name
         String articleContributor = getString(R.string.settings_author_value);
-        String api = getString(R.string.settings_api_default);
-
 
         Uri baseUri = Uri.parse(GUARDIAN_REQUEST_URL);
         Uri.Builder uriBuilder = baseUri.buildUpon();
 
+        // add information about author in URL
         uriBuilder.appendQueryParameter("show-tags", articleContributor);
-        uriBuilder.appendQueryParameter("api-key", api);
-
 
         return new NewsLoader(this, uriBuilder.toString());
 

@@ -18,7 +18,7 @@
     <string name="settings_author_default" translatable="false">author</string>
 
     <string name="settings_api_value">api</string>
-    <string name="settings_api_key">api</string>
-    <string name="settings_api_default" translatable="false">test</string>
+    <string name="settings_api_default">api</string>
+    <string name="settings_api_key" translatable="false">50dc77e8–fb18–40ad-a1b4-43d9a126b333</string>
 
 </resources>
